@@ -5,7 +5,7 @@ const db = require("./db");
 
 app.get("/", async (req, res) => {
   const results = await db.query("select * from restaurant");
-  res.send(results);
+  console.log(results);
 });
 
 app.listen(process.env.PORT, () => {
