@@ -4,8 +4,12 @@ const dotenv = require("dotenv").config();
 const db = require("./db");
 
 app.get("/", async (req, res) => {
-  const results = await db.query("select * from restaurant");
-  console.log(results);
+  try {
+    const results = await db.query("select * from restaurant");
+    res.status(200).json({});
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.listen(process.env.PORT, () => {
